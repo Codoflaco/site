@@ -60,19 +60,22 @@ h1, h2, h3, h4,
   font-family: var(--font-heading);
 }
 
+/* Configuración de Títulos Corregida y Limpia */
 h1 {
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 700; /* Bajamos de 800 a 700 (Bold normal) */
+  letter-spacing: -0.01em; /* Apenas un toque para unir, sin encimar */
+  line-height: 1.15; /* Le damos un poco más de aire vertical */
 }
 
 h2 {
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: 0; /* Espaciado natural y limpio */
+  line-height: 1.25;
 }
 
 h3 {
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-weight: 600; /* Semi-bold para subtítulos, más elegante */
+  letter-spacing: 0;
 }
 
 img {
@@ -391,6 +394,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .floating-card strong {
+ font-weight: 800;
+  letter-spacing: -0.01em;
   font-size: 2.2rem;
   color: var(--primary-blue);
   line-height: 1;
