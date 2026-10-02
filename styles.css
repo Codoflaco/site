@@ -1,9 +1,9 @@
 :root {
-  /* Paleta modernizada: tonos más ricos y contrastantes */
+  /* Paleta moderna y corporativa */
   --primary-blue: #0052cc;
   --primary-blue-dark: #003d99;
   --primary-blue-soft: #f0f5ff;
-  --accent-color: #00e676; /* Verde sutil para WhatsApp/Éxito */
+  --accent-color: #00e676; 
   
   --gray-900: #0f172a;
   --gray-700: #334155;
@@ -12,7 +12,11 @@
   --gray-100: #f8fafc;
   --white: #ffffff;
   
-  /* Sombras modernas (Glass y Neumorphism sutil) */
+  /* Sistema Tipográfico UX/UI */
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Sombras y Radios */
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 10px 25px -3px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 20px 40px -5px rgba(15, 23, 42, 0.12);
@@ -33,15 +37,42 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px; /* Para el header fijo */
+  scroll-padding-top: 90px;
 }
 
 body {
-  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   background: var(--white);
   color: var(--gray-900);
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Configuración de Títulos */
+h1, h2, h3, h4, 
+.brand, 
+.eyebrow, 
+.floating-card strong, 
+.step-number, 
+.strip-link {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 img {
@@ -55,7 +86,6 @@ a {
   transition: var(--transition-smooth);
 }
 
-/* Accesibilidad Focus */
 a:focus-visible, button:focus-visible {
   outline: 3px solid var(--primary-blue);
   outline-offset: 4px;
@@ -86,7 +116,7 @@ a:focus-visible, button:focus-visible {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* --- Animaciones Scroll (Intersection Observer) --- */
+/* Animaciones al Scrollear */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -101,7 +131,7 @@ a:focus-visible, button:focus-visible {
   transform: translate(0, 0);
 }
 
-/* --- Topbar --- */
+/* Topbar */
 .topbar {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
@@ -168,7 +198,7 @@ a:focus-visible, button:focus-visible {
   width: 100%;
 }
 
-/* --- Botones --- */
+/* Botones */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -176,7 +206,9 @@ a:focus-visible, button:focus-visible {
   min-height: 50px;
   padding: 0.8rem 1.8rem;
   border-radius: var(--radius-sm);
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.01em;
   font-size: 1rem;
   transition: var(--transition-smooth);
   border: 2px solid transparent;
@@ -227,7 +259,13 @@ a:focus-visible, button:focus-visible {
   border-color: var(--white);
 }
 
-/* --- Hero --- */
+/* Telefonos en botones con fuente fuerte */
+.strip-link, .btn-primary[href^="tel:"], .hero-actions .btn {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* Hero */
 .hero {
   background: linear-gradient(180deg, #f1f6ff 0%, #ffffff 100%);
   padding: 5rem 0 6rem;
@@ -244,8 +282,6 @@ a:focus-visible, button:focus-visible {
 .hero-copy h1 {
   font-size: clamp(2.5rem, 4.5vw, 4.5rem);
   line-height: 1.1;
-  font-weight: 900;
-  letter-spacing: -0.04em;
   color: var(--gray-900);
   margin-bottom: 1.5rem;
 }
@@ -358,7 +394,6 @@ a:focus-visible, button:focus-visible {
   font-size: 2.2rem;
   color: var(--primary-blue);
   line-height: 1;
-  font-weight: 900;
 }
 
 .floating-card span {
@@ -376,7 +411,7 @@ a:focus-visible, button:focus-visible {
   100% { transform: translateY(0px); }
 }
 
-/* --- Contact Strip --- */
+/* Contact Strip */
 .contact-strip {
   background: var(--primary-blue-dark);
   color: var(--white);
@@ -399,7 +434,6 @@ a:focus-visible, button:focus-visible {
 .strip-link {
   color: var(--white);
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
-  font-weight: 900;
   letter-spacing: -0.03em;
   display: inline-flex;
   align-items: center;
@@ -414,7 +448,7 @@ a:focus-visible, button:focus-visible {
   transform: scale(1.05);
 }
 
-/* --- Secciones Generales --- */
+/* Titulos de seccion */
 .section-header {
   max-width: 750px;
   margin: 0 auto 3.5rem;
@@ -424,12 +458,10 @@ a:focus-visible, button:focus-visible {
 .section-header h2 {
   font-size: clamp(2.2rem, 3.5vw, 3.2rem);
   line-height: 1.15;
-  letter-spacing: -0.04em;
-  font-weight: 800;
   color: var(--gray-900);
 }
 
-/* --- Servicios --- */
+/* Servicios */
 .services {
   background: var(--gray-100);
 }
@@ -476,16 +508,14 @@ a:focus-visible, button:focus-visible {
   font-size: 1.35rem;
   margin-bottom: 0.8rem;
   color: var(--gray-900);
-  font-weight: 800;
 }
 
 .card-copy p {
   color: var(--gray-700);
   font-size: 1rem;
-  line-height: 1.6;
 }
 
-/* --- Beneficios --- */
+/* Beneficios */
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -523,6 +553,7 @@ a:focus-visible, button:focus-visible {
 
 .benefit-item span {
   display: inline-block;
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
   color: var(--primary-blue-soft);
@@ -540,7 +571,7 @@ a:focus-visible, button:focus-visible {
   color: var(--gray-500);
 }
 
-/* --- Proceso --- */
+/* Proceso */
 .process {
   background: var(--white);
 }
@@ -574,7 +605,6 @@ a:focus-visible, button:focus-visible {
   display: grid;
   place-items: center;
   font-size: 1.6rem;
-  font-weight: 800;
   margin: 0 auto 1.5rem;
   box-shadow: var(--shadow-glow);
   position: absolute;
@@ -589,7 +619,7 @@ a:focus-visible, button:focus-visible {
   color: var(--gray-900);
 }
 
-/* --- Testimonios --- */
+/* Testimonios */
 .testimonials {
   background: var(--primary-blue-soft);
 }
@@ -603,7 +633,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .stars {
-  color: #fbbf24; /* Amarillo para estrellas */
+  color: #fbbf24;
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
@@ -619,7 +649,7 @@ a:focus-visible, button:focus-visible {
   font-weight: 700;
 }
 
-/* --- CTA Band --- */
+/* CTA Band */
 .cta-band {
   background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
   color: var(--white);
@@ -646,12 +676,10 @@ a:focus-visible, button:focus-visible {
 
 .cta-band h2 {
   font-size: clamp(2rem, 3vw, 3rem);
-  letter-spacing: -0.04em;
-  font-weight: 900;
   margin-top: 0.5rem;
 }
 
-/* --- Footer --- */
+/* Footer */
 .footer {
   background: #0f172a;
   color: var(--white);
@@ -682,7 +710,6 @@ a:focus-visible, button:focus-visible {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   color: var(--white);
-  font-weight: 700;
 }
 
 .footer ul {
@@ -713,7 +740,7 @@ a:focus-visible, button:focus-visible {
   font-size: 0.95rem;
 }
 
-/* --- Responsividad --- */
+/* Responsividad */
 @media (max-width: 980px) {
   .hero-grid {
     grid-template-columns: 1fr;
